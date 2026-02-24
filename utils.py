@@ -3,7 +3,7 @@ import re
 
 def process_response(response):
     data = response.json()
-
+    print(data)
     content = data["output"]["content"]
 
     think_match = re.search(r"<think>(.*?)</think>", content, re.DOTALL)

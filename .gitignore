@@ -1,2 +1,6 @@
 .env
 /venv/
+
+instructions.txt
+output.txt
+temp.py
