@@ -84,7 +84,7 @@ def get_system_prompt(a):
 
 def api_call(payload):
     response = requests.post(url, headers=headers, json=payload, stream=STREAM)
-    print(response)
+    # print(response)
     final = ""
     if STREAM:
         for line in response.iter_lines():
@@ -114,16 +114,16 @@ while True:
     else:
         # inp = input("Give the topic for the debate: ")
         inp = "Prostitution in INDIA"
-        STARTED = True
         with open("output.txt", "w") as file:
             # file.write(f"\n\n---------------- DEBATER {debater} ----------------\n")
             file.write(f"TOPIC: {inp}")
             # file.write("\n-----------------------------------------------\n")
 
     sys = get_system_prompt(inp)
-    # print(sys)
+    print(sys)
     payload = get_payload(debater, inp, sys)
     result = api_call(payload)
+    STARTED = True
     # print(result)
 
     with open("output.txt", "a") as file:
